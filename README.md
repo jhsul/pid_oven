@@ -11,9 +11,7 @@ Only the 5 most recent error values are ever stored by the controller, and they 
 // Errors
 const int ecount = 5; // amount of previous errors stored
 double errors[ecount]; // with 0 as the most recent one, 4 as the oldest
-```
-
-The control output is intended to fall on the interval `[0.0, 1.0` (it can accomodate values outside of this range, though). 
+``` 
 
 The integral term is calculated by using a Riemann sum of the 5 most recent error values with respect to time.
 
@@ -30,6 +28,16 @@ The derivative term is calculated using the 2 most recent error values with resp
 
 ```C
 de = (errors[0] - errors[1])/period;
+```
+
+The control output is intended to fall on the interval `[0.0, 1.0]` (it can accomodate values outside of this range, though). The controller calculates the output using the standard PID model.
+
+*Note: `errors[0]` is equivalent to the proportional term*
+
+```C
+double output = kp * errors[0]
+                + ki * ie
+                + kd * de;
 ```
 
 ## Control Constants
