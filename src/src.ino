@@ -42,7 +42,7 @@ double de;
 
 // Errors
 const int ecount = 5; // amount of previous errors stored
-double errors[ecount]; // with 0 as the most recent one, 4 as the oldest
+double errors[ecount]; // with 0 as the most recent one, ecount-1 as the oldest
 
 void setup()
 {
@@ -60,7 +60,7 @@ void loop()
   sp = map(analogRead(pot), 0, 1023, 0, 200);
   
   disp(sp, pv);
-  
+
   // Cycle the error values
   for(int i = ecount - 1; i > 0; --i)
   {

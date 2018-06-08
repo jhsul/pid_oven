@@ -10,7 +10,7 @@ Only the 5 most recent error values are ever stored by the controller, and they 
 ```C
 // Errors
 const int ecount = 5; // amount of previous errors stored
-double errors[ecount]; // with 0 as the most recent one, 4 as the oldest
+double errors[ecount]; // with 0 as the most recent one, ecount-1 as the oldest
 ``` 
 
 The integral term is calculated by using a Riemann sum of the 5 most recent error values with respect to time.
