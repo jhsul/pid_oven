@@ -2,6 +2,36 @@
 
 The goal of this project was to implement a simple PID control loop on an Arduino controller regulating the power to a toaster oven. By turning the oven on and off at varying intervals (I couldn't modify the voltage, just turn it on/off), the controller adjusts the temperature of the oven.
 
+## Algorithm
+
+
+Only the 5 most recent error values are ever stored by the controller, and they are stored in a rolling array.
+
+```C
+// Errors
+const int ecount = 5; // amount of previous errors stored
+double errors[ecount]; // with 0 as the most recent one, 4 as the oldest
+```
+
+The control output is intended to fall on the interval `[0.0, 1.0` (it can accomodate values outside of this range, though). 
+
+The integral term is calculated by using a Riemann sum of the 5 most recent error values with respect to time.
+
+```C
+ie = 0.0f;
+for(int i = 0; i < ecount; ++i)
+{
+  ie += errors[i];
+}
+ie *= period;
+```
+
+The derivative term is calculated using the 2 most recent error values with respect to time.
+
+```C
+de = (errors[0] - errors[1])/period;
+```
+
 ## Control Constants
 
 ```C
