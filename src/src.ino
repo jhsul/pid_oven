@@ -46,7 +46,7 @@ double errors[ecount]; // with 0 as the most recent one, 4 as the oldest
 
 void setup()
 {
-	lcd.begin(16, 2);
+  lcd.begin(16, 2);
   pinMode(co, OUTPUT);
   Serial.begin(9600);
   
@@ -55,12 +55,12 @@ void setup()
 
 void loop()
 {
-	//static int cnt = 0;
-	pv = thermocouple.readCelsius();
+  //static int cnt = 0;
+  pv = thermocouple.readCelsius();
   sp = map(analogRead(pot), 0, 1023, 0, 200);
   
-	disp(sp, pv);
-
+  disp(sp, pv);
+  
   // Cycle the error values
   for(int i = ecount - 1; i > 0; --i)
   {
