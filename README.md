@@ -36,8 +36,8 @@ The control output is intended to fall on the interval `[0.0, 1.0]` (it can acco
 
 ```C
 double output = kp * errors[0]
-                + ki * ie
-                + kd * de;
+              + ki * ie
+              + kd * de;
 ```
 
 ## Control Constants
