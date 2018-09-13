@@ -2,6 +2,10 @@
 
 The goal of this project was to implement a simple PID control loop on an Arduino controller regulating the power to a toaster oven. By turning the oven on and off at varying intervals (I couldn't modify the voltage, just turn it on/off), the controller adjusts the temperature of the oven.
 
+![alt text][pic]
+
+[pic]: /oven_controller.jpeg "Logo Title Text 2"
+
 ## Algorithm
 
 
