@@ -4,7 +4,7 @@ The goal of this project was to implement a simple PID control loop on an Arduin
 
 ![alt text][pic]
 
-[pic]: /oven_controller.jpeg "Logo Title Text 2"
+[pic]: oven_controller.jpeg "Logo Title Text 2"
 
 ## Algorithm
 
